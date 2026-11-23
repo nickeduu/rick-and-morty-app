@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import PersonagensScreen from './src/screens/PersonagensScreen';
+import DetalhePersonagemScreen from './src/screens/DetalhePersonagemScreen';
 import { cores } from './src/theme';
 
 const Stack = createNativeStackNavigator();
@@ -22,6 +23,11 @@ export default function App() {
           name="Personagens"
           component={PersonagensScreen}
           options={{ title: 'Rick and Morty' }}
+        />
+        <Stack.Screen
+          name="DetalhePersonagem"
+          component={DetalhePersonagemScreen}
+          options={({ route }) => ({ title: route.params.nome })}
         />
       </Stack.Navigator>
     </NavigationContainer>
